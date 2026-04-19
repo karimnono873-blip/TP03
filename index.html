@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Rendu TP N°03 - POO</title>
+    <style>
+        :root {
+            --primary-blue: #1a73e8;
+            --primary-cyan: #00bcd4;
+            --primary-violet: #8a2be2;
+            --bg-color: #f8f9fa;
+            --text-dark: #202124;
+            --text-light: #5f6368;
+            --surface-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--surface-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        /* Page de garde */
+        .page-garde {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan), var(--primary-violet));
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .page-garde h1 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            font-weight: 700;
+        }
+
+        .page-garde h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .page-garde .univ-details {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-garde .student-info {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Contenu principal */
+        .content {
+            padding: 40px;
+        }
+
+        h3 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-cyan);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        h4 {
+            color: var(--primary-violet);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Sommaire */
+        .sommaire {
+            background: #f1f3f4;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .sommaire a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .sommaire a:hover {
+            color: var(--primary-violet);
+        }
+
+        /* Code et Console */
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .console {
+            background: #000;
+            color: #0f0;
+            border-left: 5px solid var(--primary-cyan);
+        }
+
+        .highlight-keyword { color: #569cd6; }
+        .highlight-type { color: #4ec9b0; }
+        .highlight-string { color: #ce9178; }
+        .highlight-comment { color: #6a9955; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f1f3f4;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer span {
+            font-weight: bold;
+            background: -webkit-linear-gradient(135deg, var(--primary-blue), var(--primary-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="page-garde">
+            <div class="univ-details">
+                Université des Sciences et de la Technologie HOUARI BOUMEDIENE - USTHB<br>
+                Faculté de Génie Electrique FGE | Département d'Automatique
+            </div>
+            <h2>Module : TP POO</h2>
+            <h1>TP N° 3 : Programmation des systèmes par les méthodes de POO</h1>
+            <h2>Jeu de réflexion : Saute Mouton</h2>
+            
+            <div class="student-info">
+                <strong>Réalisé par :</strong> Dahane Ahmed Lamine<br>
+                <strong>Spécialité :</strong> Automatique | <strong>Niveau :</strong> M1 AII<br>
+                <strong>Enseignant :</strong> M. MENANI
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="sommaire">
+                <h4 style="margin-top: 0;">Sommaire</h4>
+                <a href="#historique">1. Contexte Historique et Théorique</a>
+                <a href="#solution">2. Solution de l'Exercice (Code Java)</a>
+                <a href="#execution">3. Panneau d'Exécution (Visualisation)</a>
+                <a href="#explications">4. Explications et Mécanismes du Code</a>
+                <a href="#conclusion">5. Retour d'Expérience et Feedback</a>
+            </div>
+
+            <h3 id="historique">1. Contexte Historique et Théorique</h3>
+            <p><strong>La Programmation Orientée Objet (POO) :</strong> Apparue dans les années 1960 avec le langage Simula, la POO a révolutionné la conception logicielle en modélisant les problèmes sous forme d'objets interagissant entre eux. Le langage Java, créé par Sun Microsystems en 1995, a popularisé ce paradigme grâce à sa robustesse et sa portabilité ("Write Once, Run Anywhere").</p>
+            <p><strong>Le Jeu du Saute-Mouton :</strong> Ce casse-tête classique trouve ses racines dans les jeux de société solitaires traditionnels. Le but est de transposer deux groupes d'éléments (ici des pions rouges et noirs) de part et d'autre d'un plateau en utilisant un espace vide central. La résolution mathématique de ce jeu repose sur la théorie des graphes et l'anticipation des états de blocage.</p>
+
+            <h3 id="solution">2. Solution de l'Exercice (Code Java)</h3>
+            <p>Le code suivant a été développé en respectant strictement l'arborescence algorithmique demandée par le cours (Initialiser, Afficher, Jouer un coup, Fin de jeu, Rejouer) ainsi que les contraintes de déplacement.</p>
+            
+<pre><code><span class="highlight-keyword">import</span> java.util.Scanner;
+
+<span class="highlight-keyword">public class</span> <span class="highlight-type">SauteMouton</span> {
+    <span class="highlight-comment">// Constantes et Variables globales requises par l'enseignant</span>
+    <span class="highlight-keyword">static final int</span> NbMAX = <span class="highlight-string">10</span>;
+    <span class="highlight-keyword">static char</span>[] Plateau;
+    <span class="highlight-keyword">static int</span> nbPions;
+    <span class="highlight-keyword">static int</span> indVide;
+
+    <span class="highlight-keyword">public static void</span> main(String[] args) {
+        <span class="highlight-type">Scanner</span> scanner = <span class="highlight-keyword">new</span> <span class="highlight-type">Scanner</span>(System.in);
+        <span class="highlight-keyword">boolean</span> rejouer = <span class="highlight-keyword">true</span>;
+
+        <span class="highlight-keyword">while</span> (rejouer) {
+            initialiserPlateau(scanner);
+            <span class="highlight-keyword">boolean</span> fini = <span class="highlight-keyword">false</span>;
+
+            <span class="highlight-keyword">while</span> (!fini) {
+                afficherPlateau();
+                jouerCoup(scanner);
+                fini = finDeJeu();
+            }
+
+            System.out.print(<span class="highlight-string">"Voulez-vous refaire une partie ? (O/N) : "</span>);
+            <span class="highlight-keyword">char</span> rep = scanner.next().toUpperCase().charAt(<span class="highlight-string">0</span>);
+            <span class="highlight-keyword">if</span> (rep != <span class="highlight-string">'O'</span>) rejouer = <span class="highlight-keyword">false</span>;
+        }
+        scanner.close();
+    }
+
+    <span class="highlight-keyword">static void</span> initialiserPlateau(<span class="highlight-type">Scanner</span> scanner) {
+        <span class="highlight-keyword">do</span> {
+            System.out.print(<span class="highlight-string">"Entrez le nombre de pions (max "</span> + NbMAX + <span class="highlight-string">") : "</span>);
+            nbPions = scanner.nextInt();
+        } <span class="highlight-keyword">while</span> (nbPions <= <span class="highlight-string">0</span> || nbPions > NbMAX);
+
+        Plateau = <span class="highlight-keyword">new char</span>[<span class="highlight-string">2</span> * nbPions + <span class="highlight-string">1</span>];
+        
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-string">0</span>; i < nbPions; i++) Plateau[i] = <span class="highlight-string">'N'</span>;
+        
+        indVide = nbPions;
+        Plateau[indVide] = <span class="highlight-string">' '</span>;
+        
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = nbPions + <span class="highlight-string">1</span>; i < <span class="highlight-string">2</span> * nbPions + <span class="highlight-string">1</span>; i++) Plateau[i] = <span class="highlight-string">'R'</span>;
+    }
+
+    <span class="highlight-keyword">static void</span> afficherPlateau() {
+        System.out.println(<span class="highlight-string">"\nPlateau de jeu :"</span>);
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-string">0</span>; i < Plateau.length; i++) {
+            System.out.print(<span class="highlight-string">"["</span> + Plateau[i] + <span class="highlight-string">"]"</span>);
+        }
+        System.out.println();
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-string">0</span>; i < Plateau.length; i++) {
+            System.out.print(<span class="highlight-string">" "</span> + i + <span class="highlight-string">" "</span>);
+        }
+        System.out.println();
+    }
+
+    <span class="highlight-keyword">static void</span> jouerCoup(<span class="highlight-type">Scanner</span> scanner) {
+        System.out.print(<span class="highlight-string">"Position du pion à jouer : "</span>);
+        <span class="highlight-keyword">int</span> pos = scanner.nextInt();
+
+        <span class="highlight-keyword">if</span> (pos < <span class="highlight-string">0</span> || pos >= Plateau.length || pos == indVide) {
+            System.out.println(<span class="highlight-string">"Position invalide."</span>);
+            <span class="highlight-keyword">return</span>;
+        }
+
+        <span class="highlight-keyword">char</span> pion = Plateau[pos];
+
+        <span class="highlight-comment">// Logique stricte dictée par l'algorithme du TP</span>
+        <span class="highlight-keyword">if</span> (pion == <span class="highlight-string">'R'</span>) {
+            <span class="highlight-keyword">if</span> (pos - <span class="highlight-string">1</span> == indVide) {
+                echanger(pos, indVide);
+            } <span class="highlight-keyword">else if</span> (pos - <span class="highlight-string">2</span> == indVide && Plateau[pos - <span class="highlight-string">1</span>] == <span class="highlight-string">'N'</span>) {
+                echanger(pos, indVide);
+            } <span class="highlight-keyword">else</span> {
+                System.out.println(<span class="highlight-string">"Coup interdit pour le pion Rouge."</span>);
+            }
+        } <span class="highlight-keyword">else if</span> (pion == <span class="highlight-string">'N'</span>) {
+            <span class="highlight-keyword">if</span> (pos + <span class="highlight-string">1</span> == indVide) {
+                echanger(pos, indVide);
+            } <span class="highlight-keyword">else if</span> (pos + <span class="highlight-string">2</span> == indVide && Plateau[pos + <span class="highlight-string">1</span>] == <span class="highlight-string">'R'</span>) {
+                echanger(pos, indVide);
+            } <span class="highlight-keyword">else</span> {
+                System.out.println(<span class="highlight-string">"Coup interdit pour le pion Noir."</span>);
+            }
+        }
+    }
+
+    <span class="highlight-keyword">static void</span> echanger(<span class="highlight-keyword">int</span> pos1, <span class="highlight-keyword">int</span> pos2) {
+        <span class="highlight-keyword">char</span> temp = Plateau[pos1];
+        Plateau[pos1] = Plateau[pos2];
+        Plateau[pos2] = temp;
+        indVide = pos1; <span class="highlight-comment">// Mise à jour de l'index de la case vide</span>
+    }
+
+    <span class="highlight-keyword">static boolean</span> finDeJeu() {
+        <span class="highlight-comment">// Vérification de la victoire</span>
+        <span class="highlight-keyword">boolean</span> gagne = <span class="highlight-keyword">true</span>;
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-string">0</span>; i < nbPions; i++) {
+            <span class="highlight-keyword">if</span> (Plateau[i] != <span class="highlight-string">'R'</span>) gagne = <span class="highlight-keyword">false</span>;
+        }
+        <span class="highlight-keyword">if</span> (gagne) {
+            System.out.println(<span class="highlight-string">"Bravo ! Configuration finale gagnante atteinte !"</span>);
+            <span class="highlight-keyword">return true</span>;
+        }
+
+        <span class="highlight-comment">// Vérification du blocage</span>
+        <span class="highlight-keyword">boolean</span> bloque = <span class="highlight-keyword">true</span>;
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-string">0</span>; i < Plateau.length; i++) {
+            <span class="highlight-keyword">if</span> (i == indVide) <span class="highlight-keyword">continue</span>;
+            <span class="highlight-keyword">if</span> (Plateau[i] == <span class="highlight-string">'R'</span> && (i - <span class="highlight-string">1</span> == indVide || (i - <span class="highlight-string">2</span> == indVide && Plateau[i - <span class="highlight-string">1</span>] == <span class="highlight-string">'N'</span>))) {
+                bloque = <span class="highlight-keyword">false</span>; <span class="highlight-keyword">break</span>;
+            }
+            <span class="highlight-keyword">if</span> (Plateau[i] == <span class="highlight-string">'N'</span> && (i + <span class="highlight-string">1</span> == indVide || (i + <span class="highlight-string">2</span> == indVide && Plateau[i + <span class="highlight-string">1</span>] == <span class="highlight-string">'R'</span>))) {
+                bloque = <span class="highlight-keyword">false</span>; <span class="highlight-keyword">break</span>;
+            }
+        }
+
+        <span class="highlight-keyword">if</span> (bloque) {
+            System.out.println(<span class="highlight-string">"Situation de blocage. Vous avez perdu."</span>);
+            <span class="highlight-keyword">return true</span>;
+        }
+        <span class="highlight-keyword">return false</span>;
+    }
+}</code></pre>
+
+            <h3 id="execution">3. Panneau d'Exécution (Visualisation de la Console)</h3>
+            <p>Voici une simulation de ce que l'utilisateur verra lors de l'exécution du programme compilé, démontrant l'interaction homme-machine.</p>
+            <pre class="console"><code>Entrez le nombre de pions (max 10) : 2
+
+Plateau de jeu :
+[N][N][ ][R][R]
+ 0  1  2  3  4 
+Position du pion à jouer : 1
+
+Plateau de jeu :
+[N][ ][N][R][R]
+ 0  1  2  3  4 
+Position du pion à jouer : 3
+
+Plateau de jeu :
+[N][R][N][ ][R]
+ 0  1  2  3  4 
+Position du pion à jouer : 4
+
+Plateau de jeu :
+[N][R][N][R][ ]
+ 0  1  2  3  4 
+Position du pion à jouer : 2
+
+Plateau de jeu :
+[N][R][ ][R][N]
+ 0  1  2  3  4 
+Position du pion à jouer : 0
+...
+Bravo ! Configuration finale gagnante atteinte !
+Voulez-vous refaire une partie ? (O/N) : N</code></pre>
+
+            <h3 id="explications">4. Explications et Mécanismes du Code</h3>
+            <p>L'implémentation a été conçue pour refléter la méthodologie séquentielle et modulaire exigée[cite: 100]. Chaque sous-programme répond à une exigence spécifique :</p>
+            <ul>
+                <li><strong>Déclaration des Variables Globales :</strong> Conformément au sujet du TP[cite: 136, 137, 138, 139], nous avons déclaré <code>NbMAX</code> comme constante, <code>Plateau</code> comme tableau de caractères, et géré les indices avec <code>nbPions</code> et <code>indVide</code>.</li>
+                <li><strong>Méthode <code>initialiserPlateau()</code> :</strong> Elle sécurise l'entrée utilisateur pour s'assurer que le nombre de pions ne dépasse pas la limite imposée[cite: 140, 141]. Ensuite, elle alloue dynamiquement l'espace mémoire requis (<code>2 * nbPions + 1</code>) et place les 'N' à gauche, 'R' à droite, avec un espace vide au centre.</li>
+                <li><strong>Méthode <code>jouerCoup()</code> :</strong> C'est le cœur logique du programme. Elle traduit le pseudo-code fourni dans l'énoncé de manière stricte. 
+                    <ul>
+                        <li>Pour un pion <strong>Rouge ('R')</strong> : Il vérifie si la case à sa gauche directe (<code>pos - 1</code>) est vide, ou s'il doit sauter un pion Noir (<code>pos - 2</code> vide et <code>pos - 1 == 'N'</code>)[cite: 102, 103, 107].</li>
+                        <li>Pour un pion <strong>Noir ('N')</strong> : La logique est inversée (vérification vers la droite : <code>pos + 1</code> ou <code>pos + 2</code>)[cite: 108, 109, 112].</li>
+                    </ul>
+                </li>
+                <li><strong>Méthode <code>echanger()</code> :</strong> Cette fonction utilitaire accomplit le "Déplacement = échange de valeurs" stipulé dans les contraintes[cite: 113], simplifiant la lisibilité de <code>jouerCoup()</code>.</li>
+                <li><strong>Méthode <code>finDeJeu()</code> :</strong> Elle analyse le tableau de manière linéaire. D'abord, elle vérifie si les pions 'R' occupent les premières positions (Victoire). Ensuite, elle scanne tous les pions restants pour s'assurer qu'au moins un déplacement est encore valide (Sinon : Blocage)[cite: 130, 131].</li>
+            </ul>
+
+            <h3 id="conclusion">5. Retour d'Expérience et Feedback</h3>
+            <p>La mise en œuvre de cet algorithme m'a permis d'appréhender de manière concrète la manipulation des tableaux en Java, ainsi que l'importance d'une décomposition modulaire (fonctions/procédures) pour gérer des états complexes. La traduction d'un arbre algorithmique (du format papier/PDF) vers un langage typé (Java) met en évidence la nécessité d'une gestion rigoureuse des index afin d'éviter les erreurs communes comme l'<code>ArrayIndexOutOfBoundsException</code>.</p>
+
+        </div>
+
+        <div class="footer">
+            Design & Code <span>Created by Dahane Ahmed Lamine</span> | Interface Utilisateur Professionnelle
+        </div>
+    </div>
+
+</body>
+</html>
